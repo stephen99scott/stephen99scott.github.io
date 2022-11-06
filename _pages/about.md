@@ -1,6 +1,6 @@
 ---
 title: About Me
-description: Stephen Scott, Mechatronics Engineer
+description: Stephen Scott, Embedded Software Engineer
 featured_image: /images/social.jpg
 ---
 
@@ -11,13 +11,13 @@ I graduated with a Bachelors of Mechatronics Engineering & Management from McMas
 ![](/images/about/McMaster_University_logo.png){: width="200"}
 
 ## Work Experience
-
 * Satellite Engineering Co-op, [Telesat](https://www.telesat.com/), May-Dec 2021
 * Research Assistant, [McMaster Centre for Software Certification](https://www.mcscert.ca/), May-Dec 2020
 * Manufacturing Engineering Student, [General Motors](https://www.gm.ca/en/home.html), May-Aug 2019
 
 ## Volunteer Experience
-* Command & Data Handling, [McMaster NEUDOSE](https://mcmasterneudose.ca/), April 2020-2022
+* Volleyball Coach, Governor Simcoe Secondary School, Sept-Nov 2022
+* Command & Data Handling Software Lead, [McMaster NEUDOSE](https://mcmasterneudose.ca/), April 2020-Present
 * Mentor, [FIRST Robotics Canada](https://niagararobotics.com/), Jan-Mar 2020
 
 ## Publications
