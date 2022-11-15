@@ -11,6 +11,7 @@ I graduated with a Bachelors of Mechatronics Engineering & Management from McMas
 ![](/images/about/McMaster_University_logo.png){: width="200"}
 
 ## Work Experience
+* ASIC Digital Design Engineer, I , [Synopsys](https://www.synopsys.com/), Nov 2022 - Present
 * Satellite Engineering Co-op, [Telesat](https://www.telesat.com/), May-Dec 2021
 * Research Assistant, [McMaster Centre for Software Certification](https://www.mcscert.ca/), May-Dec 2020
 * Manufacturing Engineering Student, [General Motors](https://www.gm.ca/en/home.html), May-Aug 2019
