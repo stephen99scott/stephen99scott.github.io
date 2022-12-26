@@ -81,7 +81,7 @@ Additionally, the IMU task checks if the IMU module is calibrated by requesting 
 
 ### Sensors Task
 
-The sensors task is responsible for triggering the collection tasks to sample data, and passing that data to the communications task.
+The sensors task triggers the collection tasks to collect data and passes the data to the communications task.
 
 A 20Hz software timer was used to unblock the collection tasks' task notifications. The sensors task blocks on an [event group](https://www.freertos.org/FreeRTOS-Event-Groups.html) until all sensor data is collected, then passes the data to the communications module and blocks on a task notification until the next timer tick. 
 
@@ -89,7 +89,7 @@ After the sensors task collects the max number of samples for a gesture (1 or 40
 
 ### Communications Task
 
-The comms task is responsible for receiving commands, and transmitting sensor data to the Android application using the BLE UART module.
+The comms task receives commands and wirelessly transmits sensor data to the Android application over Bluetooth.
 
 The task runs in a polling fashion which monitors a flag set by the sensors task to check if new sensor data is ready to be transmitted. If new data is ready, the data is serialized and ingested into a FIFO buffer for transmission. Then, the task processes any received commands, and finally transmits any data in the transmission buffer.
 
@@ -100,54 +100,6 @@ The comms task is capable of processing 3 commands as described below:
 | CMD_SAMPLE_STATIC  | 0x01 | Trigger sensors task to sample once             |
 | CMD_SAMPLE_DYNAMIC | 0x02 | Trigger sensors task to sample 40 times at 20Hz |
 | CMD_RESET_IMU      | 0x03 | Software reset the IMU                              |
-
----
-
-## Sign Buddy Packet Structure
-
-Sensor data was stored in a structure utilizing Google's [protocol buffers](https://developers.google.com/protocol-buffers).
-
-```protobuf
-message SBPSample {
-  required uint32 sample_id = 1;
-
-  message IMUData {
-    required sint32 quat_w = 1;
-    required sint32 quat_x = 2;
-    required sint32 quat_y = 3;
-    required sint32 quat_z = 4;
-  }
-
-  required IMUData imu_data = 2;
-
-  message FlexData {
-    required uint32 flex_thumb = 1;
-    required uint32 flex_index = 2;
-    required uint32 flex_middle = 3;
-    required uint32 flex_ring = 4;
-    required uint32 flex_little = 5;
-  }
-
-  required FlexData flex_data = 3;
-
-  message TouchData {
-    required bool touch_1 = 1;
-    required bool touch_2 = 2;
-    required bool touch_3 = 3;
-    required bool touch_4 = 4;
-    required bool touch_5 = 5;
-    required bool touch_6 = 6;
-    required bool touch_7 = 7;
-    required bool touch_8 = 8;
-    required bool touch_9 = 9;
-    required bool touch_10 = 10;
-    required bool touch_11 = 11;
-    required bool touch_12 = 12;
-  }
-
-  required TouchData touch_data = 4;
-}
-```
 
 ---
 
